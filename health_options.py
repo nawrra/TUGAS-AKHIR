@@ -18,7 +18,7 @@ class HealthOptions(tk.Tk):
         button_kalkulator_bmi = tk.Button(self, text="KALKULATOR BMI", width=20, command=self.show_bmi_calculator)
         button_kalkulator_bmi.pack(pady=5)
 
-        button_informasi_kalori = tk.Button(self, text="AKTIVITAS-GOALS", width=20, command=self.show_calorie_info_form)
+        button_informasi_kalori = tk.Button(self, text="KEBUTUHAN KALORI", width=20, command=self.show_calorie_info_form)
         button_informasi_kalori.pack(pady=5)
 
     def show_hari_terakhir_menstruasi_form(self):
