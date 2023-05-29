@@ -3,7 +3,7 @@ import tkinter as tk
 class CalorieInfoForm(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("AKTIVITAS-GOALS")
+        self.title("KEBUTUHAN KALORI")
         self.geometry("300x300")
 
         label_aktivitas = tk.Label(self, text="Pilih Aktivitas Anda:")
@@ -11,7 +11,7 @@ class CalorieInfoForm(tk.Tk):
 
         self.var_aktivitas = tk.StringVar()
         self.var_aktivitas.set(str)
-        rb_aktivitas1 = tk.Radiobutton(self, text="Menetap", variable=self.var_aktivitas, value="Menetap")
+        rb_aktivitas1 = tk.Radiobutton(self, text="Tidak Aktif", variable=self.var_aktivitas, value="Menetap")
         rb_aktivitas1.pack()
         rb_aktivitas2 = tk.Radiobutton(self, text="Sedikit Aktif", variable=self.var_aktivitas, value="Sedikit Aktif")
         rb_aktivitas2.pack()
@@ -20,7 +20,7 @@ class CalorieInfoForm(tk.Tk):
         rb_aktivitas4 = tk.Radiobutton(self, text="Sangat Aktif", variable=self.var_aktivitas, value="Sangat Aktif")
         rb_aktivitas4.pack()
 
-        label_goal = tk.Label(self, text="Pilih Goals Anda:")
+        label_goal = tk.Label(self, text="Pilih Keinginan Anda:")
         label_goal.pack()
 
         self.var_goal = tk.StringVar()
@@ -35,25 +35,25 @@ class CalorieInfoForm(tk.Tk):
         button_submit = tk.Button(self, text="Submit", command=self.calculate_calorie)
         button_submit.pack(pady=10)
 
-        self.label_calorie = tk.Label(self, text="Total Kalori:")
+        self.label_calorie = tk.Label(self, text="Kebutuhan Kalori:")
         self.label_calorie.pack()
 
     def calculate_calorie(self):
         aktivitas = self.var_aktivitas.get()
         goal = self.var_goal.get()
 
-        if aktivitas == "Sedentary":
+        if aktivitas == "Tidak Aktif":
             activity_factor = 1.2
-        elif aktivitas == "Lightly Active":
+        elif aktivitas == "Sedikit Aktif":
             activity_factor = 1.375
-        elif aktivitas == "Moderately Active":
+        elif aktivitas == "Cukup Aktif":
             activity_factor = 1.55
         else:
             activity_factor = 1.725
 
-        if goal == "Lose Weight":
+        if goal == "Menurunkan Berat Badan":
             calorie_factor = 0.8
-        elif goal == "Maintain Weight":
+        elif goal == "Menjaga Berat Badan":
             calorie_factor = 1.0
         else:
             calorie_factor = 1.2
